@@ -605,7 +605,7 @@ dependencies = [
 
 [[package]]
 name = "priority-class-policy"
-version = "1.0.4"
+version = "1.0.5"
 dependencies = [
  "k8s-openapi",
  "kubewarden-policy-sdk",
