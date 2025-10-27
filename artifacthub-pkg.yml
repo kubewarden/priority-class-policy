@@ -4,32 +4,32 @@
 #
 # This config can be saved to its default location with:
 #   kwctl scaffold artifacthub > artifacthub-pkg.yml 
-version: 1.1.0
+version: 1.1.1
 name: priority-class-policy
 displayName: Priority class policy
-createdAt: 2025-10-23T11:11:07.697980867Z
+createdAt: 2025-10-27T15:51:53.9554036Z
 description: Validates Pod's priority class
 license: Apache-2.0
 homeURL: https://github.com/kubewarden/priority-class-policy
 containersImages:
 - name: policy
-  image: ghcr.io/kubewarden/policies/priority-class-policy:v1.1.0
+  image: ghcr.io/kubewarden/policies/priority-class-policy:v1.1.1
 keywords:
 - pod
 - priority-class
 links:
 - name: policy
-  url: https://github.com/kubewarden/priority-class-policy/releases/download/v1.1.0/policy.wasm
+  url: https://github.com/kubewarden/priority-class-policy/releases/download/v1.1.1/policy.wasm
 - name: source
   url: https://github.com/kubewarden/priority-class-policy
 install: |
   The policy can be obtained using [`kwctl`](https://github.com/kubewarden/kwctl):
   ```console
-  kwctl pull ghcr.io/kubewarden/policies/priority-class-policy:v1.1.0
+  kwctl pull ghcr.io/kubewarden/policies/priority-class-policy:v1.1.1
   ```
   Then, generate the policy manifest and tune it to your liking. For example:
   ```console
-  kwctl scaffold manifest -t ClusterAdmissionPolicy registry://ghcr.io/kubewarden/policies/priority-class-policy:v1.1.0
+  kwctl scaffold manifest -t ClusterAdmissionPolicy registry://ghcr.io/kubewarden/policies/priority-class-policy:v1.1.1
   ```
 maintainers:
 - name: Kubewarden developers
@@ -58,7 +58,7 @@ annotations:
           List of the PriorityClass names that users can use in the Pod's priorityClassName field
         group: Settings
         label: Allowed priority classes
-        required: true
+        required: false
         type: array[
         variable: allowed_priority_classes
       - default: []
@@ -67,7 +67,7 @@ annotations:
           List of the PriorityClass names that users can not use in the Pod's priorityClassName field
         group: Settings
         label: Denied priority classes
-        required: true
+        required: false
         type: array[
         variable: denied_priority_classes
       - default: ""
